@@ -1,0 +1,90 @@
+.home-container {
+  text-align: center;
+  padding: 3rem;
+}
+/* General styles for the chatbot container */
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  cursor: grab;
+  display: flex;
+  flex-direction: column-reverse; /* Stack button and chatbox */
+  align-items: center;
+}
+
+/* Chat button styles */
+.chat-button {
+  background-color: #0084ff;
+  font-size: 1.5rem;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px; /* Space between button and chatbox */
+  transition: all 0.3s ease;
+}
+
+.chat-button:hover {
+  background-color: #006bb3; /* Darker blue on hover */
+}
+
+/* Chatbox container styles */
+.chatbox {
+  width: 300px; /* Adjust width for desktop */
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10000;
+}
+
+/* Chatbox header */
+.chatbox-header {
+  background-color: #d92332;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* Close button styles */
+.close-chat {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 576px) {
+  /* Adjust button size on small screens */
+  .chat-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  /* Adjust chatbox width on mobile */
+  .chatbox {
+    width: 90% !important;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  /* Ensure the chatbot stays clear from edges on mobile */
+  .chatbot-container {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  /* Style for the chat button on hover */
+  .chat-button:hover {
+    background-color: #006bb3;
+  }
+}

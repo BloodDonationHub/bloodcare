@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "category": "Event",
+    "date": "2025-06-25",
+    "image": "/images/camp1.jpg",
+    "title": {
+      "en": "Blood Donation Camp in Kathmandu",
+      "np": "काठमाडौंमा रक्तदान कार्यक्रम"
+    },
+    "description": {
+      "en": "A successful blood donation camp was organized in Kathmandu with over 200 donors.",
+      "np": "काठमाडौंमा २०० भन्दा बढी दाताहरुको साथमा सफल रक्तदान कार्यक्रम सम्पन्न भयो।"
+    }
+  },
+  {
+    "id": 2,
+    "category": "Urgent",
+    "date": "2025-06-26",
+    "image": "/images/urgent.jpg",
+    "title": {
+      "en": "Urgent Need for O- Blood",
+      "np": "O- रक्तको अत्यावश्यक आवश्यकता"
+    },
+    "description": {
+      "en": "O-negative blood donors are urgently needed for a patient in Lalitpur.",
+      "np": "ललितपुरमा एक बिरामीको लागि O-negative रक्तदाताको अत्यावश्यक आवश्यकता छ।"
+    }
+  },
+  {
+    "id": 3,
+    "category": "Thank You",
+    "date": "2025-06-27",
+    "image": "/images/donor.jpg",
+    "title": {
+      "en": "New Donor Registered",
+      "np": "नयाँ रक्तदाता दर्ता भए"
+    },
+    "description": {
+      "en": "We welcomed our 500th registered donor today.",
+      "np": "आज हामीले हाम्रो ५००औं दर्ता भएको रक्तदातालाई स्वागत गर्यौं।"
+    }
+  },
+  {
+    "id": 4,
+    "category": "Event",
+    "date": "2025-06-20",
+    "image": "/images/event2.jpg",
+    "title": {
+      "en": "Awareness Program in Pokhara",
+      "np": "पोखरामा जनचेतना कार्यक्रम"
+    },
+    "description": {
+      "en": "An awareness session was held in Pokhara to promote voluntary blood donation.",
+      "np": "पोखरामा स्वेच्छिक रक्तदान प्रवर्द्धन गर्न जनचेतना कार्यक्रम सञ्चालन गरियो।"
+    }
+  },
+  {
+    "id": 5,
+    "category": "Thank You",
+    "date": "2025-06-15",
+    "image": "/images/thankyou.jpg",
+    "title": {
+      "en": "Thanks to Our Blood Heroes",
+      "np": "हाम्रा रक्त नायकहरूलाई धन्यवाद"
+    },
+    "description": {
+      "en": "We extend heartfelt gratitude to all who participated in the June donation drive.",
+      "np": "जुन महिनाको रक्तदान कार्यक्रममा सहभागी हुने सबैलाई हार्दिक धन्यवाद।"
+    }
+  },
+  {
+    "id": 6,
+    "category": "Urgent",
+    "date": "2025-06-28",
+    "image": "/images/emergency.jpg",
+    "title": {
+      "en": "Emergency Request: B+ Blood Needed",
+      "np": "आपतकालीन अनुरोध: B+ रक्त चाहिन्छ"
+    },
+    "description": {
+      "en": "B-positive blood is required urgently for surgery in Bhaktapur Hospital.",
+      "np": "भक्तपुर अस्पतालमा शल्यक्रियाको लागि B-positive रक्त अत्यावश्यक रूपमा चाहिन्छ।"
+    }
+  },
+  {
+    "id": 7,
+    "category": "Event",
+    "date": "2025-06-10",
+    "image": "/images/camp2.jpg",
+    "title": {
+      "en": "School Blood Awareness Session",
+      "np": "विद्यालयमा रक्तदान जनचेतना सत्र"
+    },
+    "description": {
+      "en": "An educational session was conducted at Sunrise School about safe donation.",
+      "np": "सनराइज स्कुलमा सुरक्षित रक्तदान सम्बन्धी शिक्षा सत्र सञ्चालन गरियो।"
+    }
+  },
+  {
+    "id": 8,
+    "category": "Thank You",
+    "date": "2025-06-12",
+    "image": "/images/donor-smile.jpg",
+    "title": {
+      "en": "Smiling Donors Shared Their Stories",
+      "np": "मुस्कुराउँदै दाताहरूले आफ्ना कथा सुनाए"
+    },
+    "description": {
+      "en": "Donors shared emotional stories about why they donate blood regularly.",
+      "np": "दाताहरूले किन उनीहरू नियमित रूपमा रक्तदान गर्छन् भन्ने भावनात्मक कथा साझा गरे।"
+    }
+  }
+]
