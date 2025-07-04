@@ -167,7 +167,7 @@ const News = () => {
 
                 <h2>{language === 'en' ? 'Latest News' : 'हालका समाचार'}</h2>
                 {/* Scrolling News Banner */}
-                
+
                 <div>
                     <button
                         className={`btn btn-sm me-2 ${language === 'en' ? 'btn-primary' : 'btn-outline-primary'}`}
@@ -183,13 +183,14 @@ const News = () => {
                     </button>
                 </div>
             </div>
-<div className="bg-danger text-white py-2 px-3 rounded mb-3 overflow-hidden position-relative">
-                    <div className="marquee">
-                        {language === 'en'
-                            ? '📢 News is updating live... Stay tuned for the latest updates!'
-                            : '📢 समाचार अद्यावधिक हुँदैछ... पछिल्लो समाचारको लागि तयार रहनुहोस्!'}
-                    </div>
+            <div className="bg-danger text-white py-2 px-3 rounded mb-3 overflow-hidden position-relative">
+                <div className="marquee">
+                    {language === 'en'
+                        ? '📢 News is updating live... Stay tuned for the latest updates!'
+                        : '📢 समाचार अद्यावधिक हुँदैछ... पछिल्लो समाचारको लागि तयार रहनुहोस्!'}
+                        
                 </div>
+            </div>
             {/* Filter by Category */}
             <div className="mb-4">
                 <select

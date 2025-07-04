@@ -27,6 +27,7 @@ import Introduction from './components/Introduction ';
 import EligibilityChecker from './pages/EligibilityChecker';
 import Login from './pages/Login';
 import WithAuthModal from './components/WithAuthModal';
+import Vaccine from './components/Vaccine';
 
 
 
@@ -93,6 +94,8 @@ function App() {
 
             {/* Auth Routes */}
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/about/vaccine" element={<Vaccine />} />
+
 
           </Routes>
         </div>

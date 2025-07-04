@@ -110,5 +110,19 @@
       "en": "Donors shared emotional stories about why they donate blood regularly.",
       "np": "दाताहरूले किन उनीहरू नियमित रूपमा रक्तदान गर्छन् भन्ने भावनात्मक कथा साझा गरे।"
     }
+  },
+  {
+    "id": 8,
+    "category": "Event",
+    "date": "2025-06-12",
+    "image": "/images/donor-smile.jpg",
+    "title": {
+      "en": "this is event",
+      "np": "मुस्कुराउँदै दाताहरूले आफ्ना कथा सुनाए"
+    },
+    "description": {
+      "en": "Donors shared emotional stories about why they donate blood regularly.",
+      "np": "दाताहरूले किन उनीहरू नियमित रूपमा रक्तदान गर्छन् भन्ने भावनात्मक कथा साझा गरे।"
+    }
   }
 ]

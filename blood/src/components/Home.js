@@ -10,7 +10,7 @@ import ActionProvider from "../chatbot/ActionProvider";
 import "../App.css";
 import "./Home.css";
 import { useLanguage } from "../context/LanguageContext";
-import Footer from "./Footer"; // ✅ IMPORT FOOTER COMPONENT
+import Footer from "./Footer"; // footer js
 
 const Home = () => {
   const [showBot, setShowBot] = useState(false);
@@ -50,7 +50,7 @@ const Home = () => {
                     title="Close Chat"
                   >
                     ❌
-                  </button>
+                       </button>
                 </div>
 
                 <Chatbot
