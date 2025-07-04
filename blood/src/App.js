@@ -30,6 +30,7 @@ import WithAuthModal from './components/WithAuthModal';
 import Vaccine from './components/Vaccine';
 
 
+
 // Styles
 import './App.css';
 import './index.css';
@@ -93,9 +94,8 @@ function App() {
 
             {/* Auth Routes */}
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-          
-          {/* Vaccine */}
-          <Route path="/vaccine" element={<Vaccine />} />
+            <Route path="/about/vaccine" element={<Vaccine />} />
+
 
           </Routes>
         </div>

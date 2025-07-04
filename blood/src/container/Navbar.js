@@ -97,19 +97,53 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
               </ul>
             </li>
 
+            
             {/* ABOUT US */}
-            <li className={`nav-item dropdown ${openDropdown === 'about' ? 'show' : ''}`}
+            <li
+              className={`nav-item dropdown ${openDropdown === 'about' ? 'show' : ''}`}
               onMouseEnter={() => handleMouseEnter('about')}
-              onMouseLeave={handleMouseLeave}>
-              <span className="nav-link dropdown-toggle" onClick={() => handleDropdownToggle('about')}>
+              onMouseLeave={handleMouseLeave}
+            >
+              <span
+                className="nav-link dropdown-toggle"
+                onClick={() => handleDropdownToggle('about')}
+              >
                 ABOUT US
               </span>
-              <ul className={`dropdown-menu ${openDropdown === 'about' ? 'show' : ''} ${darkMode ? 'dropdown-menu-dark' : ''}`}>
-                <li><Link className="dropdown-item" to="/about/introduction" onClick={handleLinkClick}>Introduction</Link></li>
-                <li><Link className="dropdown-item" to="/about/structure-development" onClick={handleLinkClick}>Organizational Structure</Link></li>
-                <li><Link className="dropdown-item" to="/about/vaccine" onClick={handleLinkClick}>Vaccine</Link></li>
+              <ul
+                className={`dropdown-menu ${openDropdown === 'about' ? 'show' : ''} ${darkMode ? 'dropdown-menu-dark' : ''
+                  }`}
+              >
+                <li>
+                  <Link
+                    className="dropdown-item"
+                    to="/about/introduction"
+                    onClick={handleLinkClick}
+                  >
+                    Introduction
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="dropdown-item"
+                    to="/about/structure-development"
+                    onClick={handleLinkClick}
+                  >
+                    Organizational Structure
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="dropdown-item"
+                    to="/about/vaccine"
+                    onClick={handleLinkClick}
+                  >
+                    Vaccination Info
+                  </Link>
+                </li>
               </ul>
             </li>
+
 
             {/* CONTACT */}
             <li className={`nav-item dropdown ${openDropdown === 'contact' ? 'show' : ''}`}
