@@ -58,7 +58,7 @@ body.dark {
 }
 
 /* Dropdown menu — minimal style */
-.navbar-nav .dropdown-menu {
+.navbar-nav {         /* yaha bata .dropdown-menu hatayera tala rakhe */
   background-color: transparent;
   border: none;
   box-shadow: none;
@@ -66,6 +66,16 @@ body.dark {
   margin: 0;
   min-width: max-content;
 }
+
+/* Glassy dropdown */
+.dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  border: none;
+  box-shadow: none;
+}
+
 
 /* Toggle button icons */
 .btn-light svg {

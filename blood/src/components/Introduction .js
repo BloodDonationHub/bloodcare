@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 
 const Introduction = () => {
   return (
@@ -118,6 +119,8 @@ const Introduction = () => {
           />
         </div>
       </div>
+       {/* ✅ FOOTER GOES HERE */}
+      <Footer />
     </div>
   );
 };

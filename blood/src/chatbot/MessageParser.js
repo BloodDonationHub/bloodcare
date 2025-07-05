@@ -8,7 +8,8 @@ const MessageParser = ({ children, actions }) => {
     else if (lower.includes("donate")) actions.donate();
     else if (lower.includes("contact")) actions.contact();
     else if (lower.includes("raj")) actions.raj();
-    else actions.greet();
+    else if (lower.includes("greet")) actions.greet();
+    else actions.jpt();
   };
 
   return React.cloneElement(children, { parse });

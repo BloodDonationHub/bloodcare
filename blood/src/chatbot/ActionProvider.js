@@ -17,7 +17,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       donate: () => handleFAQ("Check the 'Donate Blood' section for nearby camps."),
       contact: () => handleFAQ("Please contact your nearest Red Cross chapter."),
       raj: () => handleFAQ("Raj is a gandu ,and he always visit lokanthali often"),
-      
+      jpt: () => handleFAQ("Please ask a valid query"),
     },
   });
 };
