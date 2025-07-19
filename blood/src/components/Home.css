@@ -88,3 +88,27 @@
     background-color: #006bb3;
   }
 }
+
+/* ---------- About Section ---------- */
+.about-section {
+  padding: 2rem 0;
+}
+
+.about-section h3 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #b30000; /* Dark red heading */
+}
+
+.about-section p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+section h2 {
+  font-weight: bold;
+  color: #c40000;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
