@@ -14,6 +14,8 @@ import Footer from "./Footer";
 import newsData from "../data/newsData.json";
 
 
+
+
 const Home = () => {
   const [showBot, setShowBot] = useState(false);
   const buttonRef = useRef(null);

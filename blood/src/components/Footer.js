@@ -1,5 +1,9 @@
-import React from "react";
+
+import React from 'react';
+import { Link } from 'react-router-dom'; // ✅ Required for <Link>
+
 import "../App.css"; // 👈 Custom styling
+
 
 
 const Footer = () => {
@@ -10,15 +14,30 @@ const Footer = () => {
 
                     {/* 🩸 Logo + About */}
                     <div className="col-md-4 mb-4">
-                        <h3 className="fw-bold text-danger">🩸 BloodCare</h3>
-                        <p className="text-light">
-                            BloodCare is dedicated to saving lives by making blood donation and access more accessible and efficient across Nepal.
-                        </p>
-                        <div className="d-flex align-items-center gap-3 mt-2">
-                            <img src="/icons/hamro.svg" alt="Hamro" height="30" />
-                            <img src="/icons/rahat.svg" alt="Rahat" height="30" />
-                        </div>
-                    </div>
+  <Link
+    className="navbar-brand fw-bold d-flex align-items-center gap-3 text-danger text-decoration-none"
+    to="/"
+  >
+    <img
+      src="/images/logo.webp"
+      alt="BloodCare Logo"
+      width="60"
+      height="60"
+      className="d-inline-block align-text-top rounded-circle"
+    />
+    <span>BloodCare</span>
+  </Link>
+
+  <p className="text-light mt-2">
+    BloodCare is dedicated to saving lives by making blood donation and access more accessible and efficient across Nepal.
+  </p>
+
+  <div className="d-flex align-items-center gap-3 mt-2">
+    <img src="/icons/hamro.svg" alt="Hamro" height="30" />
+    <img src="/icons/rahat.svg" alt="Rahat" height="30" />
+  </div>
+</div>
+
 
                     {/* 📞 Contact Info */}
                     <div className="col-md-3 mb-4">

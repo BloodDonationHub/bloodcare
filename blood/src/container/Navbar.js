@@ -28,7 +28,16 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
   return (
     <>
       <nav className={`navbar navbar-expand-lg shadow fixed-top px-4 ${darkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-light'}`}>
-        <Link className="navbar-brand fw-bold" to="/">BloodCare</Link>
+  <Link className="navbar-brand fw-bold d-flex align-items-center gap-2" to="/">
+    <img 
+      src="/images/logo.webp" 
+      alt="" 
+      width="60" 
+      height="60" 
+      className="d-inline-block align-text-top rounded-circle"
+    />
+    BloodCare
+  </Link>
 
         <button className="navbar-toggler border-0" type="button" onClick={toggleMenu}>
           {isOpen ? (
