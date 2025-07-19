@@ -12,13 +12,13 @@ router.use(cookieParser());
 const connectDB = require('../db');
 connectDB();
 
-router.post('/signup',(req, res)=>{
+router.post('/signup',async(req, res)=>{
     const {username, email, password}  = req.body;
-    const foundUser  = User.findOne({email}).exec(); 
+    const foundUser  = await User.findOne({email}); 
     if(!foundUser){
         res.status(404).send("No User Found!");
     }
-    if(!(foundUser.password === password)){
+    if((foundUser.password !== password)){
         res.status(400).send("Given credentials does not Match!");
     }
     const payload = {
@@ -37,4 +37,6 @@ router.post('/signup',(req, res)=>{
         res.status(500).send("Error occured while settting cookie");
     }
     res.status(200).send("You are signed up!");
-})
+});
+
+module.exports = router;
