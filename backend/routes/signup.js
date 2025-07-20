@@ -12,20 +12,17 @@ router.use(cookieParser());
 const connectDB = require('../db');
 connectDB();
 
-router.post('/signup',async(req, res)=>{
-    const {username, email, password}  = req.body;
-    const foundUser  = await User.findOne({email}); 
-    if(!foundUser){
-        res.status(404).send("No User Found!");
-    }
-    if((foundUser.password !== password)){
-        res.status(400).send("Given credentials does not Match!");
-    }
-    const payload = {
-        email : email
-    }
+router.post('/signup',async(req,res)=>{
+    const {username, email, password} = req.body;
     const secret_key = process.env.SECRET_KEY;
-    const token = jwt.sign(payload,secret_key, {expiresIn: "1h"});
+    const payload = {
+        email: email
+    }
+
+    const newUser = new User({username, email, password});
+    await newUser.save();
+
+    const token = jwt.sign(payload, secret_key, {expiresIn: '2h'});
     try{
         res.cookie('token', token, {
             httpOnly: true,
@@ -36,7 +33,9 @@ router.post('/signup',async(req, res)=>{
         console.error("Error while settting cookkie");
         res.status(500).send("Error occured while settting cookie");
     }
-    res.status(200).send("You are signed up!");
-});
+    console.log(token, email, password);
+    console.log("Registered!");
+    res.send("You are Registerd !");
+}); 
 
 module.exports = router;

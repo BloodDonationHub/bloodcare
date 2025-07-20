@@ -9,16 +9,16 @@ require('dotenv').config();
 
 
 //routes importing
-const register = require('./routes/register');
 const signup = require('./routes/signup');
+const login = require('./routes/login');
 const volunteer = require('./routes/becomeaVolunteer');
 const profile = require('./routes/profile');
 const bloodRequest = require('./routes/requestBlood');
 
 const PORT = process.env.PORT;
 
-app.use('/api/auth',register);
-app.use('/api/auth', signup);
+app.use('/api/auth',signup);
+app.use('/api/auth', login);
 app.use('/api', volunteer);
 app.use('/api',profile);
 app.use('/api',bloodRequest);
