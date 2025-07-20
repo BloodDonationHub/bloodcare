@@ -58,7 +58,7 @@ const Home = () => {
 
         {/* Quick Actions Second */}
         <section className="mb-5">
-          <h2 className="section-title mb-3">{t("quickActions") || "Quick Links"}</h2>
+         
           <QuickActions />
         </section>
 
@@ -142,7 +142,7 @@ const Home = () => {
           </div>
         </section>
         {/* Impact Statistics */}
-        <section className="mb-5 py-4 bg-white rounded-3 shadow-sm">
+        <section className="mb-3 py-2 bg-white rounded-2 shadow-sm">
           <div className="row text-center">
             {stats.map((stat, index) => (
               <div className="col-md-3 col-6 mb-3" key={stat.label}>

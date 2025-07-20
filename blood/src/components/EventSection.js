@@ -1,91 +1,36 @@
-// import React from 'react';
-
-// const events = {
-//   upcoming: [
-//     {
-//       title: 'Blood Donation Camp - Kathmandu',
-//       date: '2025-08-12',
-//       location: 'Basantapur Durbar Square, Kathmandu',
-//     },
-//     {
-//       title: 'Health Awareness & Blood Drive - Pokhara',
-//       date: '2025-09-05',
-//       location: 'Lakeside, Pokhara',
-//     },
-//   ],
-//   past: [
-//     {
-//       title: 'Red Cross Blood Donation - Lalitpur',
-//       date: '2025-06-20',
-//       location: 'Jawalakhel Ground, Lalitpur',
-//     },
-//     {
-//       title: 'Community Health & Blood Donation - Biratnagar',
-//       date: '2025-05-15',
-//       location: 'Biratnagar City Hall, Biratnagar',
-//     },
-//   ]
-// };
-
-// const EventSection = () => {
-//   return (
-//     <div className="container my-5">
-//       <h2 className="text-center mb-4">Events in Nepal</h2>
-
-//       {/* Upcoming Events */}
-//       <div className="mb-5">
-//         <h4 className="text-primary">Upcoming Events</h4>
-//         <div className="row">
-//           {events.upcoming.map((event, index) => (
-//             <div className="col-md-6" key={index}>
-//               <div className="card mb-3 shadow-sm">
-//                 <div className="card-body">
-//                   <h5 className="card-title">{event.title}</h5>
-//                   <p className="card-text">
-//                     📅 <strong>Date:</strong> {event.date}<br />
-//                     📍 <strong>Location:</strong> {event.location}
-//                   </p>
-//                 </div>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* Past Events */}
-//       <div>
-//         <h4 className="text-secondary">Past Events</h4>
-//         <div className="row">
-//           {events.past.map((event, index) => (
-//             <div className="col-md-6" key={index}>
-//               <div className="card mb-3 border-light">
-//                 <div className="card-body">
-//                   <h5 className="card-title">{event.title}</h5>
-//                   <p className="card-text">
-//                     📅 <strong>Date:</strong> {event.date}<br />
-//                     📍 <strong>Location:</strong> {event.location}
-//                   </p>
-//                 </div>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//     </div>
-//   );
-// };
-
-// export default EventSection;
-
-
-
-
 import React, { useState, useEffect } from "react";
-import { Card, Button, Badge, ProgressBar, ListGroup, Image } from "react-bootstrap";
+import { 
+  Card, 
+  Button, 
+  Badge, 
+  ProgressBar, 
+  ListGroup, 
+  Image, 
+  Container,
+  Row,
+  Col,
+  Alert
+} from "react-bootstrap";
+import { 
+  FaClock, 
+  FaMapMarkerAlt, 
+  FaCalendarAlt, 
+  FaUsers,
+  FaPhone,
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+  FaTint,
+  FaRegClock,
+  FaRegCalendarCheck,
+  FaHistory
+} from "react-icons/fa";
+import { MdEmergency, MdVolunteerActivism } from "react-icons/md";
 
 const EventSection = () => {
   const [timeLeft, setTimeLeft] = useState(0);
+  const [activeTab, setActiveTab] = useState("upcoming");
+  const [registeredEvents, setRegisteredEvents] = useState([]);
 
   const upcomingEvents = [
     {
@@ -96,6 +41,8 @@ const EventSection = () => {
       quota: 50,
       registered: 32,
       mapLink: "https://goo.gl/maps/abcd1234",
+      description: "Join our quarterly community blood drive. Refreshments and health checkups provided.",
+      bloodTypes: ["O+", "O-", "A+", "B+"]
     },
     {
       id: 2,
@@ -105,15 +52,62 @@ const EventSection = () => {
       quota: 100,
       registered: 77,
       mapLink: "https://goo.gl/maps/wxyz5678",
+      description: "Celebrate World Donor Day with us! Special gifts for all donors.",
+      bloodTypes: ["All Types"]
     },
+    {
+      id: 3,
+      title: "University Blood Drive",
+      date: "2025-09-05T11:00:00",
+      venue: "Tribhuvan University Campus",
+      quota: 80,
+      registered: 45,
+      mapLink: "https://goo.gl/maps/efgh5678",
+      description: "Exclusive for students and faculty members. Show your student ID.",
+      bloodTypes: ["A+", "B+", "AB+"]
+    }
   ];
 
   const pastEvents = [
-    { id: 1, title: "Emergency Flood Relief Drive", collected: 78, image: "/past1.jpg" },
-    { id: 2, title: "Annual Health Camp 2024", collected: 120, image: "/past2.jpg" },
+    { 
+      id: 1, 
+      title: "Emergency Flood Relief Drive", 
+      collected: 78, 
+      image: "/past1.jpg",
+      date: "2025-06-15",
+      impact: "Helped 234 flood victims across 3 districts"
+    },
+    { 
+      id: 2, 
+      title: "Annual Health Camp 2024", 
+      collected: 120, 
+      image: "/past2.jpg",
+      date: "2024-12-05",
+      impact: "Screened 500+ donors and collected record donations"
+    },
+    { 
+      id: 3, 
+      title: "Corporate Challenge 2024", 
+      collected: 95, 
+      image: "/past3.jpg",
+      date: "2024-10-20",
+      impact: "15 companies participated in friendly competition"
+    }
   ];
 
-  const volunteersNeeded = ["Registration Desk", "Logistics Helper", "Social Media", "First Aid"];
+  const volunteersNeeded = [
+    { role: "Registration Desk", needed: 5, filled: 3 },
+    { role: "Logistics Helper", needed: 8, filled: 2 },
+    { role: "Social Media", needed: 2, filled: 1 },
+    { role: "First Aid", needed: 3, filled: 1 },
+    { role: "Donor Support", needed: 6, filled: 4 }
+  ];
+
+  const emergencyNeeds = [
+    { bloodType: "O-", hospital: "City Hospital", urgency: "Critical", contact: "01-4245678" },
+    { bloodType: "B-", hospital: "Teaching Hospital", urgency: "High", contact: "01-4412345" },
+    { bloodType: "Platelets", hospital: "Cancer Center", urgency: "Medium", contact: "01-4223344" }
+  ];
 
   useEffect(() => {
     const nextEventTime = new Date(upcomingEvents[0].date).getTime();
@@ -135,78 +129,328 @@ const EventSection = () => {
     return `${d}d ${h}h ${m}m ${s}s`;
   };
 
+  const handleRegister = (eventId) => {
+    if (!registeredEvents.includes(eventId)) {
+      setRegisteredEvents([...registeredEvents, eventId]);
+    }
+  };
+
+  const isRegistered = (eventId) => registeredEvents.includes(eventId);
+
   return (
-    <div className="container mt-4">
-      <h2 className="text-center mb-4">🩸 Blood Donation Events</h2>
+    <Container className="my-5">
+      <h2 className="text-center mb-4 display-5">
+        <FaTint className="text-danger me-2" />
+        Blood Donation Events
+      </h2>
 
-      <Card className="mb-4">
-        <Card.Body>
-          <Card.Title>Next Event Countdown</Card.Title>
-          <Card.Text>
-            <strong>{upcomingEvents[0].title}</strong> starts in:
-          </Card.Text>
-          <h4 className="text-danger">{formatTime(timeLeft)}</h4>
+      {/* Countdown Card */}
+      <Card className="mb-4 border-0 shadow-sm">
+        <Card.Body className="text-center py-4 bg-light">
+          <div className="d-flex justify-content-center align-items-center mb-3">
+            <FaRegClock size={24} className="text-danger me-2" />
+            <Card.Title className="mb-0 h4">Next Event Countdown</Card.Title>
+          </div>
+          <h5 className="mb-3">{upcomingEvents[0].title}</h5>
+          <div className="countdown-display bg-danger text-white p-3 rounded d-inline-block">
+            <h3 className="mb-0">{formatTime(timeLeft)}</h3>
+          </div>
+          <div className="mt-3">
+            <FaCalendarAlt className="me-2 text-muted" />
+            <span className="text-muted">
+              {new Date(upcomingEvents[0].date).toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+              })}
+            </span>
+          </div>
+          <Button 
+            variant="danger" 
+            className="mt-3 px-4"
+            onClick={() => handleRegister(upcomingEvents[0].id)}
+            disabled={isRegistered(upcomingEvents[0].id)}
+          >
+            {isRegistered(upcomingEvents[0].id) ? "Registered ✓" : "Register Now"}
+          </Button>
         </Card.Body>
       </Card>
 
-      <h4>📌 Upcoming Events</h4>
-      <div className="row">
-        {upcomingEvents.map((event) => (
-          <div className="col-md-6 mb-3" key={event.id}>
-            <Card>
+      {/* Events Navigation */}
+      <div className="d-flex justify-content-center mb-4">
+        <Button
+          variant={activeTab === "upcoming" ? "danger" : "outline-danger"}
+          className="mx-2"
+          onClick={() => setActiveTab("upcoming")}
+        >
+          <FaRegCalendarCheck className="me-2" />
+          Upcoming Events
+        </Button>
+        <Button
+          variant={activeTab === "past" ? "danger" : "outline-danger"}
+          className="mx-2"
+          onClick={() => setActiveTab("past")}
+        >
+          <FaHistory className="me-2" />
+          Past Events
+        </Button>
+      </div>
+
+      {/* Upcoming Events */}
+      {activeTab === "upcoming" && (
+        <Row className="g-4 mb-5">
+          {upcomingEvents.map((event) => (
+            <Col key={event.id} md={6} lg={4}>
+              <Card className="h-100 shadow-sm">
+                <Card.Body>
+                  <div className="d-flex justify-content-between align-items-start mb-3">
+                    <Card.Title className="mb-0">
+                      {event.title}
+                    </Card.Title>
+                    {event.registered >= event.quota ? (
+                      <Badge bg="secondary">FULL</Badge>
+                    ) : (
+                      <Badge bg="success">OPEN</Badge>
+                    )}
+                  </div>
+                  
+                  <ListGroup variant="flush" className="mb-3">
+                    <ListGroup.Item className="d-flex align-items-center">
+                      <FaCalendarAlt className="text-danger me-2" />
+                      {new Date(event.date).toLocaleString()}
+                    </ListGroup.Item>
+                    <ListGroup.Item className="d-flex align-items-center">
+                      <FaMapMarkerAlt className="text-danger me-2" />
+                      <a href={event.mapLink} target="_blank" rel="noopener">{event.venue}</a>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="d-flex align-items-center">
+                      <FaUsers className="text-danger me-2" />
+                      {event.registered}/{event.quota} donors
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <div className="d-flex align-items-center mb-1">
+                        <FaTint className="text-danger me-2" />
+                        <span>Needed: {event.bloodTypes.join(", ")}</span>
+                      </div>
+                      <ProgressBar 
+                        now={(event.registered / event.quota) * 100} 
+                        variant="danger" 
+                        label={`${Math.round((event.registered / event.quota) * 100)}%`} 
+                      />
+                    </ListGroup.Item>
+                  </ListGroup>
+                  
+                  <Card.Text className="text-muted mb-3">
+                    {event.description}
+                  </Card.Text>
+                  
+                  <div className="d-grid gap-2">
+                    <Button 
+                      variant={isRegistered(event.id) ? "outline-secondary" : "danger"}
+                      onClick={() => handleRegister(event.id)}
+                      disabled={isRegistered(event.id) || event.registered >= event.quota}
+                    >
+                      {isRegistered(event.id) ? "Registered ✓" : 
+                       event.registered >= event.quota ? "Event Full" : "Register Now"}
+                    </Button>
+                    <Button variant="outline-danger" href={event.mapLink} target="_blank">
+                      View Location
+                    </Button>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      )}
+
+      {/* Past Events */}
+      {activeTab === "past" && (
+        <Row className="g-4 mb-5">
+          {pastEvents.map((event) => (
+            <Col key={event.id} md={6} lg={4}>
+              <Card className="h-100 shadow-sm">
+                <Card.Img 
+                  variant="top" 
+                  src={event.image} 
+                  alt={event.title}
+                  style={{ height: '180px', objectFit: 'cover' }}
+                />
+                <Card.Body>
+                  <Card.Title>{event.title}</Card.Title>
+                  <div className="d-flex align-items-center mb-2">
+                    <FaCalendarAlt className="text-danger me-2" />
+                    <span>{new Date(event.date).toLocaleDateString()}</span>
+                  </div>
+                  <div className="d-flex align-items-center mb-3">
+                    <FaTint className="text-danger me-2" />
+                    <span className="fw-bold">{event.collected} units collected</span>
+                  </div>
+                  <Card.Text className="text-muted">
+                    <small>{event.impact}</small>
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer className="bg-transparent">
+                  <Button variant="outline-danger" size="sm">
+                    View Photos
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      )}
+
+      {/* Emergency Needs */}
+      <h4 className="mt-5 mb-4">
+        <MdEmergency className="text-danger me-2" />
+        Urgent Blood Needs
+      </h4>
+      <Row className="g-4 mb-5">
+        {emergencyNeeds.map((need, index) => (
+          <Col key={index} md={4}>
+            <Card className={`h-100 border-${index === 0 ? 'danger' : 'warning'}`}>
               <Card.Body>
-                <Card.Title>
-                  {event.title}{" "}
-                  {event.registered >= event.quota ? (
-                    <Badge bg="secondary">Fully Booked</Badge>
-                  ) : (
-                    <Badge bg="success">Few Spots Left</Badge>
-                  )}
-                </Card.Title>
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                  <h5 className="mb-0 text-danger">{need.bloodType}</h5>
+                  <Badge bg={index === 0 ? 'danger' : 'warning'}>
+                    {need.urgency}
+                  </Badge>
+                </div>
                 <Card.Text>
-                  📅 {new Date(event.date).toLocaleString()} <br />
-                  📍 <a href={event.mapLink}>View on Map</a> <br />
-                  Donors: {event.registered}/{event.quota}
+                  <strong>Hospital:</strong> {need.hospital}<br />
+                  <strong>Contact:</strong> {need.contact}
                 </Card.Text>
-                <ProgressBar now={(event.registered / event.quota) * 100} label={`${Math.round((event.registered / event.quota) * 100)}%`} />
-                <Button className="mt-2">Register Now</Button>
+                <Button variant="outline-danger" size="sm">
+                  <FaPhone className="me-2" />
+                  Call Now
+                </Button>
               </Card.Body>
             </Card>
-          </div>
+          </Col>
         ))}
-      </div>
+      </Row>
 
-      <h4 className="mt-4">⭐ Past Events</h4>
-      <div className="row">
-        {pastEvents.map((event) => (
-          <div className="col-md-6 mb-3" key={event.id}>
-            <Card>
-              <Card.Img variant="top" src={event.image} />
-              <Card.Body>
-                <Card.Title>{event.title}</Card.Title>
-                <Card.Text>Blood Units Collected: {event.collected}</Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-        ))}
-      </div>
-
-      <Card className="mt-4">
+      {/* Volunteer Section */}
+      <Card className="mb-5 border-0 shadow-sm">
         <Card.Body>
-          <Card.Title>🚨 Emergency Need</Card.Title>
-          <Card.Text>
-            We urgently need <strong>O- blood</strong> at City Hospital. Please contact us at <a href="tel:+977123456789">+977 123456789</a> if you can help.
-          </Card.Text>
+          <div className="d-flex align-items-center mb-4">
+            <MdVolunteerActivism size={28} className="text-danger me-3" />
+            <h4 className="mb-0">Volunteer Opportunities</h4>
+          </div>
+          
+          <Row>
+            <Col md={6}>
+              <h5>Current Needs</h5>
+              <ListGroup variant="flush">
+                {volunteersNeeded.map((role, index) => (
+                  <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center">
+                    <span>{role.role}</span>
+                    <Badge bg="danger">
+                      {role.filled}/{role.needed}
+                    </Badge>
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
+            </Col>
+            <Col md={6} className="mt-4 mt-md-0">
+              <h5>Why Volunteer?</h5>
+              <ul className="list-unstyled">
+                <li className="mb-2">✓ Gain valuable experience</li>
+                <li className="mb-2">✓ Meet like-minded people</li>
+                <li className="mb-2">✓ Make a real difference</li>
+                <li className="mb-2">✓ Get volunteer certificate</li>
+              </ul>
+              <Button variant="danger" className="mt-3">
+                Sign Up to Volunteer
+              </Button>
+            </Col>
+          </Row>
         </Card.Body>
       </Card>
 
-      <div className="text-center mb-5">
-        <p>
-          Follow us on
-          <a href="#"> Facebook</a>, <a href="#"> Instagram</a> for live updates and more.
-        </p>
+      {/* Social Media */}
+      <Card className="border-0 bg-light">
+        <Card.Body className="text-center py-4">
+          <h4 className="mb-4">Stay Connected</h4>
+          <div className="d-flex justify-content-center gap-3">
+            <Button variant="primary" size="lg" className="rounded-circle">
+              <FaFacebook />
+            </Button>
+            <Button variant="danger" size="lg" className="rounded-circle">
+              <FaInstagram />
+            </Button>
+            <Button variant="info" size="lg" className="rounded-circle">
+              <FaTwitter />
+            </Button>
+          </div>
+          <p className="mt-4 mb-0">
+            Follow us for live updates, photos from events, and urgent blood needs
+          </p>
+        </Card.Body>
+      </Card>
+
+      {/* Success Stories */}
+      <div className="text-center mt-5">
+        <h4 className="mb-4">💖 Stories of Lives Saved</h4>
+        <Row className="g-4">
+          <Col md={4}>
+            <Card className="h-100 border-0 shadow-sm">
+              <Card.Body>
+                <Image 
+                  src="/donor1.jpg" 
+                  roundedCircle 
+                  width={80}
+                  height={80}
+                  className="mb-3"
+                />
+                <Card.Text>
+                  "Donating blood helped save a mother during childbirth. I'll never forget the thank you letter I received."
+                </Card.Text>
+                <Card.Text className="text-muted">- Ramesh, 12-time donor</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={4}>
+            <Card className="h-100 border-0 shadow-sm">
+              <Card.Body>
+                <Image 
+                  src="/donor2.jpg" 
+                  roundedCircle 
+                  width={80}
+                  height={80}
+                  className="mb-3"
+                />
+                <Card.Text>
+                  "After my brother needed blood during surgery, I became a regular donor. It's the least I can do."
+                </Card.Text>
+                <Card.Text className="text-muted">- Sunita, 8-time donor</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={4}>
+            <Card className="h-100 border-0 shadow-sm">
+              <Card.Body>
+                <Image 
+                  src="/donor3.jpg" 
+                  roundedCircle 
+                  width={80}
+                  height={80}
+                  className="mb-3"
+                />
+                <Card.Text>
+                  "Our company's blood drive became an annual tradition. Last year we collected 45 units!"
+                </Card.Text>
+                <Card.Text className="text-muted">- ABC Corporation</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </div>
-    </div>
+    </Container>
   );
 };
 

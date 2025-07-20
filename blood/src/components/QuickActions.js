@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaHandHoldingHeart,
-  // FaUserPlus,
   FaTint,
   FaSearchLocation,
   FaHospital
@@ -12,49 +11,43 @@ import '../App.css';
 const QuickActions = () => {
   const actions = [
     {
-      icon: <FaHandHoldingHeart size={24} />,
+      icon: <FaHandHoldingHeart className="icon-volunteer" style={{ fontSize: '2rem' }} />,
       title: 'Become a Volunteer',
-      subtitle: 'Be part of us!',
+      subtitle: 'Join our life-saving team',
       to: '/become-volunteer',
     },
-    // {
-    //   icon: <FaUserPlus size={24} />,
-    //   title: 'Become a Member',
-    //   subtitle: 'Join us!',
-    //   to: '/become-member',
-    // },
     {
-      icon: <FaTint size={24} />,
+      icon: <FaTint className="icon-donate" style={{ fontSize: '2rem' }} />,
       title: 'Donate Blood',
-      subtitle: 'Save lives!',
+      subtitle: 'Give the gift of life',
       to: '/donate-blood',
     },
     {
-      icon: <FaSearchLocation size={24} />,
-      title: 'Find a Blood Care near you',
-      subtitle: 'Find us!',
+      icon: <FaSearchLocation className="icon-find" style={{ fontSize: '2rem' }} />,
+      title: 'Find BloodCare Near You',
+      subtitle: 'Locate nearby centers',
       to: '/find-red-cross',
     },
     {
-      icon: <FaHospital size={24} />,
+      icon: <FaHospital className="icon-bank" style={{ fontSize: '2rem' }} />,
       title: 'Blood Bank',
-      subtitle: 'Check availability',
+      subtitle: 'Check real-time availability',
       to: '/blood-bank',
     }
   ];
 
   return (
     <div className="container py-4">
-      <div className="row text-center g-3">
+      <div className="row text-center g-4">
         {actions.map((item, index) => (
           <div className="col-sm-6 col-md-4 col-lg-3" key={index}>
-            <Link to={item.to} className="text-decoration-none text-dark">
-              <div className="card quick-action-card shadow-sm border-0 rounded-3">
-                <div className="card-body d-flex flex-column align-items-center justify-content-center p-3">
+            <Link to={item.to} className="text-decoration-none">
+              <div className="card quick-action-card border-0 rounded-4 h-100">
+                <div className="card-body d-flex flex-column align-items-center justify-content-center p-4">
                   <div className="icon-container mb-3">
                     {item.icon}
                   </div>
-                  <h6 className="fw-semibold mb-1">{item.title}</h6>
+                  <h6 className="fw-bold mb-2">{item.title}</h6>
                   <small className="text-muted">{item.subtitle}</small>
                 </div>
               </div>

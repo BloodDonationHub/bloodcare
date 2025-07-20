@@ -91,3 +91,20 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+
+// const Navbar = () => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [openDropdown, setOpenDropdown] = useState(null);
+//   const [showAuthModal, setShowAuthModal] = useState(false);
+//   const [darkMode, setDarkMode] = useState(() => {
+//     return localStorage.getItem('darkMode') === 'true' || 
+//            window.matchMedia('(prefers-color-scheme: dark)').matches;
+//   });
+//   const [language, setLanguage] = useState(() => {
+//     return localStorage.getItem('language') || 'en';
+//   });
+
+  
