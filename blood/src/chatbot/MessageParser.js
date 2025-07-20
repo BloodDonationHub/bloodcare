@@ -9,6 +9,7 @@ const MessageParser = ({ children, actions }) => {
     else if (lower.includes("contact")) actions.contact();
     else if (lower.includes("raj")) actions.raj();
     else if (lower.includes("greet")) actions.greet();
+    else if (lower.includes("sameer")) actions.sameer();
     else actions.jpt();
   };
 

@@ -68,3 +68,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+* Highlight hovered dropdown item in red */
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #e94b4b;
+  color: #f71b31; /* Bootstrap danger red */
+   font-weight: 500;
+}
+
+Dropdown box appearance */
+.navbar .dropdown-menu {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  transition: all 0.2s ease-in-out;
+}
+
+Optional: style the dropdown toggle hover itself */
+.navbar .nav-link.dropdown-toggle:hover {
+  color: #fc122a;
+}

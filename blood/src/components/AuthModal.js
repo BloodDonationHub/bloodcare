@@ -10,17 +10,7 @@ const AuthModal = ({ onClose }) => {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
 
-  const handleSubmit = async(e) => {
-    const data = [email, password, username];
-    const res = await fetch("https://localhost:5000/api/auth/login",{
-      method: "post",
-      headers: "application/json",
-      body:JSON.stringify(data)
-    });
-    if(!res){
-      console.error("Error while sending data");
-    }
-    
+  const handleSubmit = (e) => {
     e.preventDefault();
     login({ username: email }); // Simulate login
     onClose();
