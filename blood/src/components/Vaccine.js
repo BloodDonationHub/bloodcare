@@ -1,287 +1,159 @@
-// import React from "react";
-// import { Card, Accordion, Image, Row, Col } from "react-bootstrap";
-// import "./VaccineInfo.css"; // custom styles
 
-// const VaccineInfo = () => {
-//   return (
-//     <div className="container mt-4 vaccine-info">
-//       <h2 className="text-center mb-4 text-primary">Vaccine Information</h2>
-
-//       {/* Banner */}
-//       <div className="text-center mb-4">
-//         <Image
-//           src="https://www.who.int/images/default-source/health-topics/vaccines/vaccine-syringe.jpg"
-//           alt="Vaccination"
-//           fluid
-//           rounded
-//           className="banner-img"
-//         />
-//       </div>
-
-//       {/* Side-by-Side Section */}
-//       <Row className="mb-4">
-//         <Col md={6} className="mb-3">
-//           <Card className="shadow-sm h-100">
-//             <Card.Body>
-//               <Card.Title>Why is Vaccination Important?</Card.Title>
-//               <Card.Text>
-//                 Vaccines protect you and your community by preventing dangerous diseases. 
-//                 Staying up-to-date with your vaccines helps you stay healthy and keeps 
-//                 others safe too — especially newborns, the elderly, and people with weak immunity.
-//               </Card.Text>
-//             </Card.Body>
-//           </Card>
-//         </Col>
-
-//         <Col md={6} className="mb-3">
-//           <Card className="shadow-sm h-100">
-//             <Card.Body>
-//               <Card.Title>Common Vaccines</Card.Title>
-//               <ul>
-//                 <li>Hepatitis B</li>
-//                 <li>Tetanus & Diphtheria (Tdap)</li>
-//                 <li>Influenza (Flu)</li>
-//                 <li>COVID-19</li>
-//                 <li>Measles, Mumps, Rubella (MMR)</li>
-//                 <li>HPV</li>
-//                 <li>Polio</li>
-//                 <li>Chickenpox (Varicella)</li>
-//               </ul>
-//             </Card.Body>
-//           </Card>
-//         </Col>
-//       </Row>
-
-//       {/* Vaccine & Blood Donation */}
-//       <Row className="mb-4">
-//         <Col md={6} className="mb-3">
-//           <Card className="shadow-sm h-100">
-//             <Card.Body>
-//               <Card.Title>Vaccines & Blood Donation</Card.Title>
-//               <Card.Text>
-//                 Many vaccines allow you to donate blood immediately, while others may require a short waiting period:
-//               </Card.Text>
-//               <ul>
-//                 <li>Flu & COVID-19 — usually okay the same day or after 1–2 days.</li>
-//                 <li>Live vaccines (like MMR, Chickenpox) — wait 2–4 weeks.</li>
-//                 <li>If unsure, check with your blood bank or doctor.</li>
-//               </ul>
-//             </Card.Body>
-//           </Card>
-//         </Col>
-
-//         <Col md={6} className="mb-3">
-//           <Card className="shadow-sm h-100">
-//             <Card.Body>
-//               <Card.Title>Useful Links</Card.Title>
-//               <ul>
-//                 <li>
-//                   <a href="https://www.who.int" target="_blank" rel="noopener noreferrer">
-//                     World Health Organization
-//                   </a>
-//                 </li>
-//                 <li>
-//                   <a href="https://www.cdc.gov/vaccines/index.html" target="_blank" rel="noopener noreferrer">
-//                     CDC Vaccine Info
-//                   </a>
-//                 </li>
-//               </ul>
-//             </Card.Body>
-//           </Card>
-//         </Col>
-//       </Row>
-
-//       {/* FAQs */}
-//       <Card className="mb-4 shadow-sm">
-//         <Card.Body>
-//           <Card.Title>Frequently Asked Questions</Card.Title>
-//           <Accordion flush>
-//             <Accordion.Item eventKey="0">
-//               <Accordion.Header>Can I donate blood after getting vaccinated?</Accordion.Header>
-//               <Accordion.Body>
-//                 Yes, for most vaccines you can donate right away. Some live vaccines require a short waiting period.
-//               </Accordion.Body>
-//             </Accordion.Item>
-//             <Accordion.Item eventKey="1">
-//               <Accordion.Header>Do vaccines affect blood quality?</Accordion.Header>
-//               <Accordion.Body>
-//                 No. Vaccines do not harm your blood quality. They keep you healthy and eligible to donate.
-//               </Accordion.Body>
-//             </Accordion.Item>
-//             <Accordion.Item eventKey="2">
-//               <Accordion.Header>Where can I get vaccinated?</Accordion.Header>
-//               <Accordion.Body>
-//                 Vaccines are available at hospitals, health centers, and during vaccination camps near you.
-//               </Accordion.Body>
-//             </Accordion.Item>
-//           </Accordion>
-//         </Card.Body>
-//       </Card>
-//     </div>
-//   );
-// };
-
-// export default VaccineInfo;
-
-
-import React from "react";
-import { Card, Accordion, Image, Row, Col } from "react-bootstrap";
-import "./VaccineInfo.css";
+import React, { useState } from 'react';
+import { FaSyringe, FaUserShield, FaQuestionCircle, FaCalendarAlt, FaCalendarPlus } from 'react-icons/fa';
+import './Vaccine.css';
 
 const VaccineInfo = () => {
-  return (
-    <div className="container mt-4 vaccine-info">
-      <h2 className="text-center mb-4 text-primary">Vaccine Information</h2>
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [selectedVaccine, setSelectedVaccine] = useState('');
 
-      {/* Banner */}
-      <div className="text-center mb-4">
-        <Image
-          src="https://www.who.int/images/default-source/health-topics/vaccines/vaccine-syringe.jpg"
-          alt="Vaccination"
-          fluid
-          rounded
-          className="banner-img"
-        />
+  const toggleAccordion = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  const addToCalendar = (dose) => {
+    // Calendar integration logic would go here
+    alert(`Added ${dose.timing} to your calendar`);
+  };
+
+  // FAQ data
+  const faqItems = [
+    {
+      question: "Can I donate blood after getting a vaccine?",
+      answer: "Most vaccines don't require a waiting period for blood donation. However, live attenuated vaccines like MMR or Varicella require a 4-week deferral period before you can donate blood."
+    },
+    {
+      question: "How do vaccines affect blood components?",
+      answer: "Vaccines stimulate your immune system but don't affect the safety or quality of your blood components. The components remain safe for transfusion after vaccination."
+    },
+    {
+      question: "Are there special vaccines for frequent blood recipients?",
+      answer: "Yes, frequent blood transfusion recipients should consider Hepatitis B, Pneumococcal, and annual Influenza vaccines for additional protection."
+    }
+  ];
+
+  // Vaccine schedule data
+  const vaccineSchedules = {
+    hepb: [
+      { dose: 1, timing: "Initial dose" },
+      { dose: 2, timing: "1 month after first dose" },
+      { dose: 3, timing: "6 months after first dose" }
+    ],
+    mmr: [
+      { dose: 1, timing: "Initial dose" },
+      { dose: 2, timing: "4 weeks after first dose" }
+    ],
+    flu: [
+      { dose: 1, timing: "Annual dose before flu season" }
+    ]
+  };
+
+  return (
+    <div className="vaccine-section">
+      {/* Header Section */}
+      <div className="vaccine-header">
+        <h1>Vaccine Information Center</h1>
+        <p>Essential immunization knowledge for donors and recipients</p>
+        {/* <img src="/images/vaccine-hero.jpg" alt="Vaccine illustration" className="header-image" /> */}
       </div>
 
-      {/* Diagonal Sections */}
-      {/* Section 1 */}
-      <Row className="mb-4 align-items-center">
-        <Col md={6}>
-          <Image
-            src="https://cdn.pixabay.com/photo/2021/02/24/18/27/vaccine-6041753_1280.jpg"
-            alt="Why Vaccination"
-            fluid
-            className="section-img"
-          />
-        </Col>
-        <Col md={6}>
-          <Card className="shadow-sm glass-card">
-            <Card.Body>
-              <Card.Title>Why is Vaccination Important?</Card.Title>
-              <Card.Text>
-                Vaccines protect you and your community by preventing dangerous diseases. 
-                Staying up-to-date with your vaccines helps you stay healthy and keeps 
-                others safe too — especially newborns, the elderly, and people with weak immunity.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+      {/* Vaccines and Blood Donation */}
+      <div className="info-card">
+        <h2><FaSyringe /> Vaccines and Blood Donation</h2>
+        <div className="content-grid">
+          <div className="text-content">
+            <h3>Donation Eligibility After Vaccination</h3>
+            <ul>
+              <li><strong>COVID-19 vaccines:</strong> No waiting period for most vaccines</li>
+              <li><strong>Live vaccines (MMR, Varicella):</strong> 4-week deferral</li>
+              <li><strong>Hepatitis B:</strong> No deferral if vaccine was preventive</li>
+              <li><strong>Flu shots:</strong> No waiting period</li>
+            </ul>
+          </div>
+          <div className="image-content">
+            <img src="/images/VaccineTimeline.jpg" alt="Vaccine to donation timeline" />
+          </div>
+        </div>
+      </div>
 
-      {/* Section 2 */}
-      <Row className="mb-4 flex-md-row-reverse align-items-center">
-        <Col md={6}>
-          <Image
-            src="https://cdn.pixabay.com/photo/2021/02/25/14/51/vaccine-6044521_1280.jpg"
-            alt="Common Vaccines"
-            fluid
-            className="section-img"
-          />
-        </Col>
-        <Col md={6}>
-          <Card className="shadow-sm glass-card">
-            <Card.Body>
-              <Card.Title>Common Vaccines</Card.Title>
+      {/* Recommended Vaccines for Blood Recipients */}
+      <div className="info-card recipient-vaccines">
+        <h2><FaUserShield /> Essential Vaccines for Blood Recipients</h2>
+        <div className="vaccine-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Vaccine</th>
+                <th>Importance</th>
+                <th>Schedule</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hepatitis B</td>
+                <td>Critical for frequent transfusion recipients</td>
+                <td>3-dose series (0, 1, 6 months)</td>
+              </tr>
+              <tr>
+                <td>Pneumococcal</td>
+                <td>Prevents serious infections</td>
+                <td>1-2 doses depending on age</td>
+              </tr>
+              <tr>
+                <td>Influenza</td>
+                <td>Annual protection</td>
+                <td>Yearly before flu season</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {/* <img src="/images/recipient-care.jpg" alt="Patient receiving care" className="side-image" /> */}
+      </div>
+
+      {/* Vaccine FAQ */}
+      <div className="info-card faq-section">
+        <h2><FaQuestionCircle /> Vaccine FAQs</h2>
+        <div className="accordion">
+          {faqItems.map((item, index) => (
+            <div className="accordion-item" key={index}>
+              <button onClick={() => toggleAccordion(index)}>
+                {item.question}
+                <span>{activeIndex === index ? '-' : '+'}</span>
+              </button>
+              {activeIndex === index && <div className="accordion-content">{item.answer}</div>}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Vaccine Scheduler Tool */}
+      <div className="scheduler-tool">
+        <h3><FaCalendarAlt /> Vaccine Schedule Planner</h3>
+        <div className="scheduler-form">
+          <select onChange={(e) => setSelectedVaccine(e.target.value)} value={selectedVaccine}>
+            <option value="">Select a vaccine</option>
+            <option value="hepb">Hepatitis B</option>
+            <option value="mmr">MMR</option>
+            <option value="flu">Influenza</option>
+          </select>
+          
+          {selectedVaccine && (
+            <div className="schedule-results">
+              <h4>Recommended Schedule:</h4>
               <ul>
-                <li>Hepatitis B</li>
-                <li>Tetanus & Diphtheria (Tdap)</li>
-                <li>Influenza (Flu)</li>
-                <li>COVID-19</li>
-                <li>Measles, Mumps, Rubella (MMR)</li>
-                <li>HPV</li>
-                <li>Polio</li>
-                <li>Chickenpox (Varicella)</li>
+                {vaccineSchedules[selectedVaccine].map((dose, i) => (
+                  <li key={i}>
+                    Dose {i+1}: {dose.timing} 
+                    <button onClick={() => addToCalendar(dose)}>
+                      <FaCalendarPlus /> Add to Calendar
+                    </button>
+                  </li>
+                ))}
               </ul>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-
-      {/* Section 3 */}
-      <Row className="mb-4 align-items-center">
-        <Col md={6}>
-          <Image
-            src="https://cdn.pixabay.com/photo/2021/02/25/12/04/vaccine-6044081_1280.jpg"
-            alt="Vaccines & Blood Donation"
-            fluid
-            className="section-img"
-          />
-        </Col>
-        <Col md={6}>
-          <Card className="shadow-sm glass-card">
-            <Card.Body>
-              <Card.Title>Vaccines & Blood Donation</Card.Title>
-              <Card.Text>
-                Many vaccines allow you to donate blood immediately, while others may require a short waiting period:
-              </Card.Text>
-              <ul>
-                <li>Flu & COVID-19 — usually okay the same day or after 1–2 days.</li>
-                <li>Live vaccines (like MMR, Chickenpox) — wait 2–4 weeks.</li>
-                <li>If unsure, check with your blood bank or doctor.</li>
-              </ul>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-
-      {/* Section 4 */}
-      <Row className="mb-4 flex-md-row-reverse align-items-center">
-        <Col md={6}>
-          <Image
-            src="https://cdn.pixabay.com/photo/2021/02/26/12/47/vaccine-6047050_1280.jpg"
-            alt="Useful Links"
-            fluid
-            className="section-img"
-          />
-        </Col>
-        <Col md={6}>
-          <Card className="shadow-sm glass-card">
-            <Card.Body>
-              <Card.Title>Useful Links</Card.Title>
-              <ul>
-                <li>
-                  <a href="https://www.who.int" target="_blank" rel="noopener noreferrer">
-                    World Health Organization
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.cdc.gov/vaccines/index.html" target="_blank" rel="noopener noreferrer">
-                    CDC Vaccine Info
-                  </a>
-                </li>
-              </ul>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-
-      {/* FAQs */}
-      <Card className="mb-4 shadow-sm glass-card">
-        <Card.Body>
-          <Card.Title>Frequently Asked Questions</Card.Title>
-          <Accordion flush>
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>Can I donate blood after getting vaccinated?</Accordion.Header>
-              <Accordion.Body>
-                Yes, for most vaccines you can donate right away. Some live vaccines require a short waiting period.
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header>Do vaccines affect blood quality?</Accordion.Header>
-              <Accordion.Body>
-                No. Vaccines do not harm your blood quality. They keep you healthy and eligible to donate.
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="2">
-              <Accordion.Header>Where can I get vaccinated?</Accordion.Header>
-              <Accordion.Body>
-                Vaccines are available at hospitals, health centers, and during vaccination camps near you.
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        </Card.Body>
-      </Card>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

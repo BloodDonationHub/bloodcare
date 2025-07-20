@@ -86,7 +86,7 @@ const Navbar = ({ toggleDarkMode, darkMode }) => {
       <nav className={`navbar navbar-expand-lg shadow fixed-top px-4 ${darkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-light'}`}>
         <Link className="navbar-brand fw-bold d-flex align-items-center gap-2" to="/">
           <img 
-            src="/images/logo.webp" 
+            src="/images/logo1.png" 
             alt="" 
             width="60" 
             height="60" 

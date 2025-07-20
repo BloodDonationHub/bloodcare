@@ -19,7 +19,7 @@ const Footer = () => {
     to="/"
   >
     <img
-      src="/images/logo.webp"
+      src="/images/logo1.png"
       alt="BloodCare Logo"
       width="60"
       height="60"
