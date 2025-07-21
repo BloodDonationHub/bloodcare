@@ -63,21 +63,21 @@ const StructureDevelopment = () => {
     },
     {
       id: 3,
-      src: "/images/Technical Team.jpg",
+      src: "/images/Technical Team1.jpg",
       alt: "Technical Team",
       title: "Technical Team",
       description: "Responsible for developing, maintaining, and securing the portal. They handle website updates, fix technical issues, and ensure the platform is reliable, user-friendly, and available at all times."
     },
     {
       id: 4,
-      src: "/images/Technical Team.jpg",
+      src: "/images/Support Team.png",
       alt: "Support Team",
       title: "Support Team",
       description: "Provides assistance to donors and recipients by answering their questions, helping them navigate the portal, resolving any problems they face, and offering guidance throughout the blood donation process. They ensure users feel supported and valued at every step."
     },
     {
       id: 5,
-      src: "/images/Technical Team.jpg",
+      src: "/images/Outreach Team.jpg",
       alt: "Outreach Team",
       title: "Outreach Team",
       description: "Plans and organizes blood donation drives, awareness campaigns, and partnerships with hospitals, schools, and organizations. They work to engage the community, recruit new donors, and promote the importance of blood donation through events, social media, and other channels. Their goal is to increase participation and build strong relationships with stakeholders."

@@ -16,7 +16,7 @@ import Contact from './components/Contact';
 import News from './components/News';
 import Media from './components/Media';
 import Tips from './components/Tips';
-import Events from './components/EventSection';
+import Events from './components/Event';
 
 
 import BecomeMember from './components/BecomeMember';
