@@ -63,7 +63,7 @@ function App() {
             <Route path="/find" element={<FindDonors />} />
             <Route path="/banks" element={<BloodBanks />} />
             <Route path="/blood-banks" element={<BloodBanks />} />
-            <Route path="/join" element={<BecomeMember />} />
+            <Route path="/become-member" element={<BecomeMember />} />
             <Route path="/eligibility-checker" element={<EligibilityChecker />} />
 
             {/* Get Involved (Protected) */}
