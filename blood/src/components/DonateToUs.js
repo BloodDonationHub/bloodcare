@@ -1,72 +1,172 @@
 import React from 'react';
+import { FaHandHoldingHeart, FaQrcode, FaBitcoin, FaMobileAlt, FaUniversity } from 'react-icons/fa';
+import "./DonateToUs.css";
 
 const DonateToUs = () => {
     return (
-
-
-        <div className="volunteer-background">
-            <div className="banner-wrapper mb-4">
-                <img src="/donate.webp" alt="Volunteer Banner" className="banner-img" />
-                <div className="banner-text">
-                    <h1>Support Blood Care</h1>
-                    <p>Join us to save lives and support communities.</p>
+        <div className="donate-page">
+            {/* Hero Section */}
+            <section className="donate-hero">
+                <div className="hero-overlay"></div>
+                <div className="hero-content">
+                    <h1 className="hero-title">Fuel Our Mission to Save Lives</h1>
+                    <p className="hero-subtitle">Every contribution helps us provide critical blood services to those in need</p>
+                    <div className="hero-buttons">
+                        <a href="#bank-transfer" className="btn btn-primary btn-lg">Bank Transfer</a>
+                        <a href="#digital-wallets" className="btn btn-success btn-lg">Digital Payment</a>
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <div className="container py-5">
-                <h2 className="text-center text-primary mb-4">Support Blood Care</h2>
-                <p className="lead text-center">
-                    To keep our ambulances running and respond to disasters, <strong>we need your support!</strong>
-                </p>
+            {/* Impact Stats */}
+            <section className="impact-stats">
+                <div className="container">
+                    <div className="stat-cards">
+                        <div className="stat-card">
+                            <div className="stat-number">5,000+</div>
+                            <div className="stat-label">Lives Saved</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">200+</div>
+                            <div className="stat-label">Blood Drives</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">50+</div>
+                            <div className="stat-label">Communities Served</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                {/* Bank Transfer Info */}
-                <div className="card mb-4">
-                    <div className="card-header bg-primary text-white">Donate via Bank Transfer / Cheque / Draft / Cash</div>
-                    <div className="card-body">
-                        <p>Please contact us via telephone: <strong>01-4671608 / 01-4270650</strong></p>
-                        <p>You can also send an “A/C payee” Cheque / Draft in favour of:</p>
-                        <ul>
-                            <li><strong>Account Name:</strong> Nepal Red Cross Society</li>
-                            <li><strong>Bank:</strong> Global IME Bank Ltd</li>
-                            <li><strong>Branch:</strong> New Baneswor, Kathmandu, Nepal</li>
-                            <li><strong>Account Number (Saving):</strong> 32101010000547</li>
-                            <li><strong>SWIFT Code:</strong> GLBBNPKA</li>
-                        </ul>
+            {/* Donation Methods */}
+            <section className="donation-methods container">
+                {/* Bank Transfer */}
+                <div id="bank-transfer" className="method-card">
+                    <div className="method-header">
+                        <FaUniversity className="method-icon" />
+                        <h2>Bank Transfer</h2>
+                    </div>
+                    <div className="method-body">
+                        <div className="bank-info">
+                            <div className="info-row">
+                                <span className="info-label">Account Name:</span>
+                                <span className="info-value">Nepal Red Cross Society</span>
+                            </div>
+                            <div className="info-row">
+                                <span className="info-label">Bank:</span>
+                                <span className="info-value">Global IME Bank Ltd</span>
+                            </div>
+                            <div className="info-row">
+                                <span className="info-label">Branch:</span>
+                                <span className="info-value">New Baneswor, Kathmandu</span>
+                            </div>
+                            <div className="info-row">
+                                <span className="info-label">Account Number:</span>
+                                <span className="info-value">32101010000547</span>
+                            </div>
+                            <div className="info-row">
+                                <span className="info-label">SWIFT Code:</span>
+                                <span className="info-value">GLBBNPKA</span>
+                            </div>
+                        </div>
+                        <div className="contact-info">
+                            <p>For assistance, call: <strong>01-4671608 / 01-4270650</strong></p>
+                        </div>
                     </div>
                 </div>
 
-                {/* Nepali Payment Gateways */}
-                <div className="card mb-4">
-                    <div className="card-header bg-success text-white">Donate via Digital Wallets</div>
-                    <div className="card-body">
-                        <p>Scan the QR or send directly to our official wallets:</p>
-                        <ul>
-                            <li><strong>eSewa ID:</strong> 9800000000</li>
-                            <li><strong>Khalti ID:</strong> 9800000001</li>
-                            <li><strong>IME Pay ID:</strong> 9800000002</li>
-                        </ul>
-                        <p className="text-muted"><small>(Replace with your official wallet numbers)</small></p>
+                {/* Digital Wallets */}
+                <div id="digital-wallets" className="method-card">
+                    <div className="method-header">
+                        <FaMobileAlt className="method-icon" />
+                        <h2>Digital Wallets</h2>
+                    </div>
+                    <div className="method-body">
+                        <div className="qr-grid">
+                            <div className="qr-item">
+                                <div className="qr-code">
+                                    <FaQrcode className="qr-icon" />
+                                </div>
+                                <div className="qr-details">
+                                    <h3>eSewa</h3>
+                                    <p>ID: 9800000000</p>
+                                </div>
+                            </div>
+                            <div className="qr-item">
+                                <div className="qr-code">
+                                    <FaQrcode className="qr-icon" />
+                                </div>
+                                <div className="qr-details">
+                                    <h3>Khalti</h3>
+                                    <p>ID: 9800000001</p>
+                                </div>
+                            </div>
+                            <div className="qr-item">
+                                <div className="qr-code">
+                                    <FaQrcode className="qr-icon" />
+                                </div>
+                                <div className="qr-details">
+                                    <h3>IME Pay</h3>
+                                    <p>ID: 9800000002</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 {/* Cryptocurrency */}
-                <div className="card mb-4">
-                    <div className="card-header bg-dark text-white">Donate with Cryptocurrency</div>
-                    <div className="card-body">
-                        <p>Support us with Bitcoin:</p>
-                        <p><strong>BTC Wallet Address:</strong> 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</p>
-                        <p className="text-muted"><small>(Replace with your official Bitcoin wallet address)</small></p>
+                <div className="method-card">
+                    <div className="method-header">
+                        <FaBitcoin className="method-icon" />
+                        <h2>Crypto Donations</h2>
+                    </div>
+                    <div className="method-body">
+                        <div className="crypto-info">
+                            <p>We accept cryptocurrency donations to support our mission:</p>
+                            <div className="wallet-address">
+                                <strong>BTC:</strong> 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa
+                            </div>
+                            <div className="wallet-address">
+                                <strong>ETH:</strong> 0x71C7656EC7ab88b098defB751B7401B5f6d8976F
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                {/* Specific District Donation */}
-                <div className="alert alert-info">
-                    <strong>Want to donate to a specific Red Cross District Chapter?</strong><br />
-                    Please contact your nearest district chapter or reach out to our headquarters for assistance.
+            {/* Testimonials */}
+            <section className="testimonials">
+                <div className="container">
+                    <h2 className="section-title">Donor Stories</h2>
+                    <div className="testimonial-cards">
+                        <div className="testimonial-card">
+                            <div className="testimonial-text">
+                                "I donate regularly because I've seen firsthand how blood donations save lives when my brother needed emergency surgery."
+                            </div>
+                            <div className="testimonial-author">- Rajesh K., Monthly Donor</div>
+                        </div>
+                        <div className="testimonial-card">
+                            <div className="testimonial-text">
+                                "Our company organizes quarterly blood drives. It's rewarding to know we're making a difference in our community."
+                            </div>
+                            <div className="testimonial-author">- Sunita M., Corporate Partner</div>
+                        </div>
+                    </div>
                 </div>
+            </section>
 
-                <p className="text-center mt-4">🙏 Thank you for your kind support! 🙏</p>
-            </div>
+            {/* CTA Section */}
+            <section className="cta-section">
+                <div className="container">
+                    <FaHandHoldingHeart className="cta-icon" />
+                    <h2>Your Support Makes All The Difference</h2>
+                    <p>Join thousands of donors helping us save lives every day</p>
+                    <div className="cta-buttons">
+                        <a href="#bank-transfer" className="btn btn-primary btn-lg">Donate Now</a>
+                        <a href="/contact" className="btn btn-outline-light btn-lg">Contact Us</a>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
